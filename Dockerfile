@@ -1,78 +1,64 @@
-#Download base image ubuntu 18.04
-FROM ubuntu:18.04
-
-# set version label
-LABEL  maintainer="Tekgator"
+#Download base image
+FROM openjdk:11-jdk-slim
 
 # set environment variables
 ARG DEBIAN_FRONTEND="noninteractive"
-ENV install_path="/McMyAdmin"
-ENV user="minecraft"
 
-# Update OS
+ENV INSTALL_PATH="/McMyAdmin"
+ENV USER="minecraft"
+
+# Install required apps 
+# Note: GIT is required to compile spigot within McMyAdmin
 RUN \
-  echo "**** update OS *****" && \
   apt-get update && \
-  apt-get install -y apt-utils && \
-  apt-get upgrade -y
-
-# Install required apps
-RUN \
-  echo "*** install required apps ****" && \
   apt-get install -y \
-  openjdk-11-jdk-headless \
   unzip \
   wget \
-  libgdiplus && \
+  libgdiplus \
+  git && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
 # Create non root user
-RUN  \
-  echo "**** create ${user} user *****" && \
-  useradd ${user} -m -s /bin/bash
+RUN useradd ${USER} -m -s /bin/bash
 
 # Download & install Mono
-WORKDIR  /usr/local
+WORKDIR /usr/local
 RUN \
-  echo "**** download Mono *****" && \
   wget http://mcmyadmin.com/Downloads/etc.zip && \
   unzip etc.zip && \
   rm etc.zip
 
 # Download & install McMyAdmin
-WORKDIR  ${install_path}
+WORKDIR ${INSTALL_PATH}
 RUN \
-  echo "**** download McMyAdmin *****" && \
   wget http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
   unzip MCMA2_glibc26_2.zip && \
   rm MCMA2_glibc26_2.zip
 
-# Accept Minecraft EULA
-WORKDIR  ${install_path}/Minecraft
-RUN \
-  echo 'eula=true' > eula.txt
-
-#Fix Permissions
-RUN  chown -R ${user}:${user} ${install_path}
+# Fix Permissions
+RUN chown -R ${USER}:${USER} ${INSTALL_PATH}
 
 # Change user
-USER ${user}
+USER ${USER}
 
 # Configure McMyAdmin
-WORKDIR  ${install_path}
+WORKDIR ${INSTALL_PATH}
 RUN \
+  mkdir Minecraft && \
+  echo 'eula=true' > Minecraft/eula.txt && \
   touch McMyAdmin.conf && \
   ./MCMA2_Linux_x86_64 -nonotice -updateonly && \
   ./MCMA2_Linux_x86_64 -configonly -setpass pass123
 
 # Open ports
-EXPOSE 8080 25565
+EXPOSE 8080 
+EXPOSE 25565
 
-# Map external volume
-VOLUME ${install_path}
+# Map McMyAdmin installation to external volume
+# so the user can configure the 
+VOLUME ${INSTALL_PATH}
 
 # start up
-WORKDIR  ${install_path}
-ENTRYPOINT  ["./MCMA2_Linux_x86_64"]
-#CMD  ["-setpass", "pass123"]
+WORKDIR ${INSTALL_PATH}
+ENTRYPOINT ./MCMA2_Linux_x86_64
