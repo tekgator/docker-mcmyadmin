@@ -18,7 +18,7 @@ Goal of this docker image is to create an easy to use docker file providing the 
 
 ## Run
 
-docker run -i -d --name McMyAdmin -p 8080:8080 -p 25565:25565 -v McMyAdmin_data:/McMyAdmin tekgator/mcmyadmin
+docker run -i -d --name McMyAdmin -p 8080:8080 -p 25565:25565 -v McMyAdmin_data:/McMyAdmin tekgator/docker-mcmyadmin
 
 ## Next steps
 
