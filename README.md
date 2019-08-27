@@ -14,7 +14,7 @@ Goal of this docker image is to create an easy to use docker file providing the 
 * The actual Minecraft server runs on default port tcp/25565
 * Maps a volume so you are free to make changes to configuration of McMyAdmin and Minecraft
 * Includes GIT so the Spigot server jar can be build by McMyAdmin
-* Java.Memory defaults to 1024 / recommend at least 2GB of RAM on server
+* Java.Memory defaults to 1GB RAM / recommend are at least 2GB RAM on server
 
 ## Run
 
