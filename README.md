@@ -15,6 +15,7 @@ Goal of this docker image is to create an easy to use docker file providing the 
 * Maps a volume so you are free to make changes to configuration of McMyAdmin and Minecraft
 * Includes GIT so the Spigot server jar can be build by McMyAdmin
 * Java.Memory defaults to 1GB RAM / recommend are at least 2GB RAM on server
+* If you like to run the [Dynmap](https://dev.bukkit.org/projects/dynmap/files) plugin consider using the extension of this image [tekgator/docker-mmcmyadmin-dynmap](https://hub.docker.com/r/tekgator/docker-mcmyadmin-dynmap)
 
 ## Run
 
