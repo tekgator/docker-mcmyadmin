@@ -38,7 +38,7 @@ RUN \
 # Fix Permissions
 RUN chown -R ${USER}:${USER} ${INSTALL_PATH}
 
-# Change user
+# Change user to non-root user
 USER ${USER}
 
 # Configure McMyAdmin
