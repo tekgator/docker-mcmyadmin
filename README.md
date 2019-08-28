@@ -4,12 +4,13 @@ McMyAdmin Panel docker file to administrate and run all variants of a Java Minec
 
 ## Description
 
-Goal of this docker image is to create an easy to use docker file providing the up to date McMyAdmin Panel which can run all kinds of Java Minecraft versions. Inspiration came from [McMyAdmin Docker image](https://hub.docker.com/r/jchaney/mcmyadmin/) by [jchaney](https://hub.docker.com/r/jchaney), a special thanks to him. I needed a little fine tuning and bugfixing here and there so I decided to create a own Docker file.
+Goal of this docker image is to create an easy to use docker file providing the up to date McMyAdmin Panel which can run all kinds of Java Minecraft versions. Most images on Docker Hub do not save the world when stopping the container, which has been added to this image. The actual persistent data e.g. worlds, configuration, etc. is mounted to a volume so it can be configured easily.
 
 ## Details
 
-* Utilizing openjdk:11-jdk-slim
+* Utilizing Ubuntu 18.04 with OpenJDK-11
 * McMyAdmin Minecraft web based admin panel
+* When the container stops firstly the world is saved and the server is properly shut down.
 * The McMyAdmin Admin panel runs under minecraft user on port tcp/8080
 * The actual Minecraft server runs on default port tcp/25565
 * Maps a volume so you are free to make changes to configuration of McMyAdmin and Minecraft
@@ -19,7 +20,30 @@ Goal of this docker image is to create an easy to use docker file providing the 
 
 ## Run
 
-docker run -i -d --name McMyAdmin -p 8080:8080 -p 25565:25565 -v McMyAdmin_data:/McMyAdmin tekgator/docker-mcmyadmin
+Map the McMyAdmin/Minecraft runtime to a docker volume
+```bash
+docker run -i -d \
+  --name McMyAdmin \
+  -p 8080:8080 \
+  -p 25565:25565 \
+  -v McMyAdmin_data:/McMyAdmin \
+  tekgator/docker-mcmyadmin
+``` 
+
+Map to local storage
+```bash
+-v /home/xxx/McMyAdmin:/McMyAdmin
+``` 
+
+Option to accept the Minecraft Server EULA automatically
+```bash
+-e EULA=1
+``` 
+
+Start and Re-start container automatically
+```bash
+--restart always
+``` 
 
 ## Next steps
 
