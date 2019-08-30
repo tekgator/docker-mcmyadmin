@@ -6,6 +6,8 @@ McMyAdmin Panel docker file to administrate and run all variants of a Java Minec
 
 Goal of this docker image is to create an easy to use docker file providing the up to date McMyAdmin Panel which can run all kinds of Java Minecraft versions. Most images on Docker Hub do not save the world when stopping the container, which has been added to this image. The actual persistent data e.g. worlds, configuration, etc. is mounted to a volume so it can be configured easily.
 
+If you like to run the [Dynmap](https://dev.bukkit.org/projects/dynmap/files) plugin consider using the extension of this image [tekgator/docker-mcmyadmin-dynmap](https://hub.docker.com/r/tekgator/docker-mcmyadmin-dynmap)
+
 ## Details
 
 * Utilizing Ubuntu 18.04 with OpenJDK-11
