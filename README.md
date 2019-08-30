@@ -32,6 +32,7 @@ docker run -i -d \
   -p 8080:8080 \
   -p 25565:25565 \
   -v McMyAdmin_data:/McMyAdmin \
+  --stop-timeout 30 \
   tekgator/docker-mcmyadmin
 ``` 
 
@@ -66,9 +67,10 @@ docker run -i -d \
   -p 8080:8080 \
   -p 25565:25565 \
   -v /home/minecraft/McMyAdmin:/McMyAdmin \
-  -e UID=1001
-  -e EULA=1
-  --restart always  
+  -e UID=1001 \
+  -e EULA=1 \
+  --restart always  \
+  --stop-timeout 30 \
   tekgator/docker-mcmyadmin
 ``` 
 
