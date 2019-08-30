@@ -27,6 +27,8 @@ RUN \
   unzip -q /tmp/MCMA2_glibc26_2.zip -d /opt/mcmyadmin2 && \
   # Cleanup
   echo "**** cleanup ****" && \
+  apt-get purge -y unzip wget && \
+  apt-get autoremove && \
   apt-get clean && \
   rm -rf \
 	  /tmp/* \
