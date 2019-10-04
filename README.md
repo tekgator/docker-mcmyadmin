@@ -36,10 +36,11 @@ docker run -i -d \
   tekgator/docker-mcmyadmin
 ``` 
 
-Map to local storage using an existing user on the host machine (get UID via ID command)
+Map to local storage using an existing user on the host machine (get UID/GID via ID command)
 ```bash
 -v /home/xxx/McMyAdmin:/McMyAdmin
 -e UID=xxx
+-e GID=xxx
 ``` 
 
 Option to accept the Minecraft Server EULA automatically
@@ -57,7 +58,7 @@ Start and Re-start container automatically
 * Create a user on the host system e.g. minecraft via `useradd minecraft`
 * Login with that user
 * Create a directory for the game data in the home directory of this user via `mkdir ~/McMyAdmin`
-* Obtain the UID of that user via `id minecraft` e.g. 1001
+* Obtain the UID and GID of that user via `id minecraft` e.g. UID 1001 / GID 100 
 * Login to your admin user for creating the docker container
 
 Now run your docker container
@@ -68,6 +69,7 @@ docker run -i -d \
   -p 25565:25565 \
   -v /home/minecraft/McMyAdmin:/McMyAdmin \
   -e UID=1001 \
+  -e GID=100 \
   -e EULA=1 \
   --restart always  \
   --stop-timeout 30 \

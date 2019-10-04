@@ -12,23 +12,20 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
     unzip \
-    wget \
-    git-core \
+    ca-certificates \
+    curl \
+    git \
     screen \
     gosu \
     openjdk-11-jdk-headless && \
   # download and unpack McMyAdmin
-  echo "**** install mcmyadmin ****" && \
-  #curl -o /tmp/MCMA2_glibc26_2.zip -L	http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
-  wget --no-check-certificate -O /tmp/MCMA2_glibc26_2.zip http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
-  #curl -o /tmp/etc.zip -L http://mcmyadmin.com/Downloads/etc.zip && \
-  wget --no-check-certificate -O /tmp/etc.zip http://mcmyadmin.com/Downloads/etc.zip && \
+  echo "**** download mcmyadmin ****" && \
+  curl -o /tmp/MCMA2_glibc26_2.zip -L	http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
+  curl -o /tmp/etc.zip -L http://mcmyadmin.com/Downloads/etc.zip && \
   unzip -q /tmp/etc.zip -d /usr/local && \
   unzip -q /tmp/MCMA2_glibc26_2.zip -d /opt/mcmyadmin2 && \
   # Cleanup
   echo "**** cleanup ****" && \
-  apt-get purge -y unzip wget && \
-  apt-get autoremove && \
   apt-get clean && \
   rm -rf \
 	  /tmp/* \
