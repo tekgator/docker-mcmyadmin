@@ -16,15 +16,15 @@ RUN \
   apt-get update && \
   apt-get install -y --no-install-recommends \
     dumb-init \
-	procps \
-	locales \
-	unzip \
+    procps \
+    locales \
+    unzip \
     ca-certificates \
     curl \
     git \
     screen \
     gosu \
-	libgdiplus \
+    libgdiplus \
     openjdk-11-jdk-headless && \
   # setup environment
   echo "**** setup environment ****" && \
@@ -33,7 +33,7 @@ RUN \
   update-locale LANG=en_US.UTF-8 && \
   # download and unpack McMyAdmin
   echo "**** download mcmyadmin ****" && \
-  curl -o /tmp/MCMA2_glibc26_2.zip -L	http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
+  curl -o /tmp/MCMA2_glibc26_2.zip -L http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
   curl -o /tmp/etc.zip -L http://mcmyadmin.com/Downloads/etc.zip && \
   unzip -q /tmp/etc.zip -d /usr/local && \
   unzip -q /tmp/MCMA2_glibc26_2.zip -d $INSTALL_PATH && \
@@ -42,9 +42,9 @@ RUN \
   echo "**** cleanup ****" && \
   apt-get clean && \
   rm -rf \
-	  /tmp/* \
-	  /var/lib/apt/lists/* \
-	  /var/tmp/*
+      /tmp/* \
+      /var/lib/apt/lists/* \
+      /var/tmp/*
 
 # copy local files
 COPY usr/ /usr/

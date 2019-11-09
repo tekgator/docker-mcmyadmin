@@ -17,7 +17,7 @@ function install_server {
         mkdir -p $VOLUME_PATH/Exec
         mkdir -p $VOLUME_PATH/MCMA_Logs
         mkdir -p $VOLUME_PATH/Public
-		cp $INSTALL_PATH/server.properties $VOLUME_PATH/Minecraft
+        cp $INSTALL_PATH/server.properties $VOLUME_PATH/Minecraft
         
         ln -s $VOLUME_PATH/McMyAdmin.conf $INSTALL_PATH
         ln -s $VOLUME_PATH/Minecraft $INSTALL_PATH
@@ -69,47 +69,47 @@ function stop_server {
     then
         echo "Stopping server..."
 
-		# Stop Minecraft server java file, if running
-		if ps ax | grep -v grep | grep java > /dev/null
-		then
-			stdbuf -o0 echo -n "Try safly stopping Minecraft Server jar"
-			screen -p 0 -S $MC_SESSION -X eval 'stuff /stop\015'
-			sync
+        # Stop Minecraft server java file, if running
+        if ps ax | grep -v grep | grep java > /dev/null
+        then
+            stdbuf -o0 echo -n "Try safly stopping Minecraft Server jar"
+            screen -p 0 -S $MC_SESSION -X eval 'stuff /stop\015'
+            sync
 
-			for run in {1..10}
-			do
-				if ps ax | grep -v grep | grep java > /dev/null
-				then
-					stdbuf -o0 echo -n "."
-					sleep 1
-				else
-					break;
-				fi
-			done
-			echo
-			if ps ax | grep -v grep | grep java > /dev/null
-			then
-				echo -e "\033[31mMinecraft is still running, possible data loss!\033[0m"
-			fi
-		fi
-		
-		# Stop McMyAdmin
-		stdbuf -o0 echo -n "Try safly stopping $MC_SERVICE"
+            for run in {1..10}
+            do
+                if ps ax | grep -v grep | grep java > /dev/null
+                then
+                    stdbuf -o0 echo -n "."
+                    sleep 1
+                else
+                    break;
+                fi
+            done
+            echo
+            if ps ax | grep -v grep | grep java > /dev/null
+            then
+                echo -e "\033[31mMinecraft is still running, possible data loss!\033[0m"
+            fi
+        fi
+        
+        # Stop McMyAdmin
+        stdbuf -o0 echo -n "Try safly stopping $MC_SERVICE"
         screen -p 0 -S $MC_SESSION -X eval 'stuff /quit\015'
         sync
-		
-		for run in {1..10}
-		do
-			if ps ax | grep -v grep | grep $MC_SERVICE > /dev/null
-			then
-				stdbuf -o0 echo -n "."
-				sleep 1
-			else
-				break;
-			fi
-		done
+        
+        for run in {1..10}
+        do
+            if ps ax | grep -v grep | grep $MC_SERVICE > /dev/null
+            then
+                stdbuf -o0 echo -n "."
+                sleep 1
+            else
+                break;
+            fi
+        done
         echo
-		if ps ax | grep -v grep | grep $MC_SERVICE > /dev/null
+        if ps ax | grep -v grep | grep $MC_SERVICE > /dev/null
         then
             echo -e "\033[31m$MC_SERVICE is still running!\033[0m"
             exit 1
