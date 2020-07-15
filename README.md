@@ -18,7 +18,7 @@ Also this docker image tails the latest McMyAdmin log file to provide logging in
 * The actual Minecraft server runs on default port tcp/25565
 * Maps a volume so you are free to make changes to configuration of McMyAdmin and Minecraft
 * Includes GIT so the Spigot server jar can be build by McMyAdmin
-* Java.Memory defaults to 2GB RAM / recommended are at least 2GB RAM on within a docker container
+* Java.Memory defaults to 2GB RAM / recommended are at least 2GB RAM within a docker container
 * If you like to run the [Dynmap](https://dev.bukkit.org/projects/dynmap/files) just expose port tcp/8123 as well
 
 ## Run
