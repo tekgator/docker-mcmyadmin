@@ -72,7 +72,7 @@ If you like to expose other ports for some plugins e.g. [Dynmap](https://dev.buk
 * Obtain the UID and GID of that user via `id minecraft` e.g. UID 1001 / GID 100 
 * Login to your admin user for creating the docker container
 
-Now run your docker container
+#### Use with docker run:
 ```bash
 docker run -d \
   --name mcmyadmin \
@@ -85,6 +85,25 @@ docker run -d \
   --restart unless-stopped  \
   --stop-timeout 30 \
   tekgator/docker-mcmyadmin
+``` 
+
+#### Use with docker-compose:
+
+```bash
+  mcmyadmin:
+    image: tekgator/docker-mcmyadmin
+    container_name: mcmyadmin
+    environment:
+      PUID: 1001
+      PGID: 100
+      EULA: 1
+    volumes:
+      - /home/minecraft/mcmyadmin:/data
+    ports:
+      - 8080:8080
+      - 25565:25565
+    stop_grace_period: 30s
+    restart: unless-stopped
 ``` 
 
 Now you have access to the Minecraft game data via the `minecraft` user on the host system by accessing `cd ~/mcmyadmin`
