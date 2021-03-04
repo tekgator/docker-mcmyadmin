@@ -10,11 +10,9 @@ services:
       PGID: 100
       EULA: 1
     volumes:
-      # make sure you create ./mcmyadmin folder with the UID:GID provided above,
-      # otherwise root will create it and UID provided above will have no permission
-      - ./mcmyadmin:/data 
+      - ./mcmyadmin:/data
     ports:
       - 8080:8080
       - 25565:25565
     stop_grace_period: 30s
-    restart: unless-stopped
+    restart: "no"
