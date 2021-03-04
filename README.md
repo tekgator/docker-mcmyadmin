@@ -2,6 +2,9 @@
 
 McMyAdmin Panel docker file to administrate and run all variants of a Java Minecraft Server.
 
+**Note:** As the below is overseen often, the default user/password for the McMyAdmin Login is **admin** / **pass123**
+
+
 ## Description
 
 Goal of this docker image is to create an easy to use docker file providing the up to date McMyAdmin Panel which can run all kinds of Java Minecraft versions. 
@@ -69,7 +72,7 @@ If you like to expose other ports for some plugins e.g. [Dynmap](https://dev.buk
 * Create a user on the host system e.g. minecraft via `useradd minecraft`
 * Login with that user
 * Create a directory for the game data in the home directory of this user via `mkdir ~/mcmyadmin`
-* Obtain the UID and GID of that user via `id minecraft` e.g. UID 1001 / GID 100 
+* Obtain the UID and GID of that user via `id minecraft` e.g. UID 1000 / GID 100 
 * Login to your admin user for creating the docker container
 
 #### Use with docker run:
@@ -79,7 +82,7 @@ docker run -d \
   -p 8080:8080 \
   -p 25565:25565 \
   -v /home/minecraft/mcmyadmin:/data \
-  -e PUID=1001 \
+  -e PUID=1000 \
   -e PGID=100 \
   -e EULA=1 \
   --restart unless-stopped  \
@@ -89,12 +92,14 @@ docker run -d \
 
 #### Use with docker-compose:
 
+A [sample](docker-compose.yml.sample) docker-compose file can be found within the repository.
+
 ```bash
   mcmyadmin:
     image: tekgator/docker-mcmyadmin
     container_name: mcmyadmin
     environment:
-      PUID: 1001
+      PUID: 1000
       PGID: 100
       EULA: 1
     volumes:
@@ -112,7 +117,7 @@ Now you have access to the Minecraft game data via the `minecraft` user on the h
 
 ## Next steps
 
-1. Open http://localhost:8080
+1. Open McMyAdmin in your browser e.g. via http://localhost:8080
 2. Login with 
     * User: **admin**
     * Password: **pass123**

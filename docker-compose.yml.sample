@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  mcmyadmin:
+    image: tekgator/docker-mcmyadmin
+    container_name: mcmyadmin
+    environment:
+      PUID: 1000
+      PGID: 100
+      EULA: 1
+    volumes:
+      - /home/minecraft/mcmyadmin:/data
+    ports:
+      - 8080:8080
+      - 25565:25565
+#      - 8123:/8123 e.g. add addtional ports as you like e.g. this sample for DynMap
+    stop_grace_period: 30s
+    restart: unless-stopped
