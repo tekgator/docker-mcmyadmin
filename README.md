@@ -94,7 +94,7 @@ docker run -d \
 
 A [sample](docker-compose.yml) docker-compose file can be found within the repository.
 
-```bash
+```yml
   mcmyadmin:
     image: tekgator/docker-mcmyadmin:latest
     container_name: mcmyadmin
