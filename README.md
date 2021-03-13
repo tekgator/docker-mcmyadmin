@@ -92,7 +92,7 @@ docker run -d \
 
 #### Use with docker-compose:
 
-A [sample](docker-compose.yml.sample) docker-compose file can be found within the repository.
+A [sample](docker-compose.yml) docker-compose file can be found within the repository.
 
 ```bash
   mcmyadmin:
