@@ -1,65 +1,52 @@
-#Download base image
 FROM openjdk:11.0.10-jdk-slim-buster
 
-# set environment variables
 ARG DEBIAN_FRONTEND="noninteractive"
 
 ENV \
-  INSTALL_PATH="/app/mcmyadmin" \
-  VOLUME_PATH="/data" \
+  APP_PATH="/app" \
+  DATA_PATH="/data" \
   MC_PWD=pass123
 
+# Map installation to external volume so the user can configure
+VOLUME ${DATA_PATH}
+
+# Create install path and change dir
+WORKDIR ${DATA_PATH}
+
+# Install required packages
 RUN \
-  # Install required packages
-  echo "**** install packages ****" && \
   apt-get update && \
-  apt-get install -y --no-install-recommends \
-    dumb-init \
-    procps \
-    locales \
-    unzip \
-    curl \
-    git \
-    screen \
-    gosu \
-    libgdiplus && \
-  # setup environment
-  echo "**** setup environment ****" && \
+  apt-get install -y --no-install-recommends dumb-init procps locales unzip curl git screen gosu libgdiplus
+
+# setup environment
+RUN \
   sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
   dpkg-reconfigure --frontend=noninteractive locales && \
-  update-locale LANG=en_US.UTF-8 && \
-  mkdir -p $INSTALL_PATH && \
-  # download and unpack McMyAdmin
-  echo "**** download mcmyadmin ****" && \
+  update-locale LANG=en_US.UTF-8
+
+# download and unpack McMyAdmin
+RUN \
   curl -o /tmp/MCMA2_glibc26_2.zip -L http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
   curl -o /tmp/etc.zip -L http://mcmyadmin.com/Downloads/etc.zip && \
-  unzip -q /tmp/etc.zip -d /usr/local && \
-  unzip -q /tmp/MCMA2_glibc26_2.zip -d $INSTALL_PATH && \
-  chmod a+x $INSTALL_PATH/MCMA2_Linux_x86_64 && \
-  # Cleanup
-  echo "**** cleanup ****" && \
-  apt-get clean && \
-  rm -rf \
-      /tmp/* \
-      /var/lib/apt/lists/* \
-      /var/tmp/*
+  unzip /tmp/etc.zip -d /usr/local && \
+  mkdir -vp $APP_PATH/config && \
+  unzip /tmp/MCMA2_glibc26_2.zip -d $APP_PATH/config && \
+  chmod -v a+rx $APP_PATH/config/MCMA2_Linux_x86_64
 
-# copy local files
+# Cleanup
+RUN \
+  apt-get clean && \
+  rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+
+# Copy local files to image
 COPY app/ /app/
   
-RUN \
-  echo "**** allow execution of the entrypoint script ****" && \
-  chmod a+x /app/docker-entrypoint.sh
-
-# Create volume path
-WORKDIR ${VOLUME_PATH}
-
-# Map installation to external volume so the user can configure
-VOLUME ${VOLUME_PATH}
+# allow read and execution of the script
+RUN chmod -v a+rx $APP_PATH/*.sh
 
 # Expose required ports
 EXPOSE 8080 25565
 
-# start up
+# Start up
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["/app/docker-entrypoint.sh"]
