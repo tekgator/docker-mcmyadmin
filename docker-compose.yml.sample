@@ -3,7 +3,7 @@ version: "3"
 services:
 
   mcmyadmin:
-    image: tekgator/docker-mcmyadmin
+    image: tekgator/docker-mcmyadmin:latest
     container_name: mcmyadmin
     environment:
       PUID: 1000

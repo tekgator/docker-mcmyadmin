@@ -35,7 +35,7 @@ docker run -d \
   -p 25565:25565 \
   --stop-timeout 30 \
   --restart unless-stopped \
-  tekgator/docker-mcmyadmin
+  tekgator/docker-mcmyadmin:latest
 ``` 
 
 Map to local storage using an existing user on the host machine (get UID/GID via ID command)
@@ -87,7 +87,7 @@ docker run -d \
   -e EULA=1 \
   --restart unless-stopped  \
   --stop-timeout 30 \
-  tekgator/docker-mcmyadmin
+  tekgator/docker-mcmyadmin:latest
 ``` 
 
 #### Use with docker-compose:
@@ -96,7 +96,7 @@ A [sample](docker-compose.yml.sample) docker-compose file can be found within th
 
 ```bash
   mcmyadmin:
-    image: tekgator/docker-mcmyadmin
+    image: tekgator/docker-mcmyadmin:latest
     container_name: mcmyadmin
     environment:
       PUID: 1000
