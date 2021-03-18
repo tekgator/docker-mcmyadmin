@@ -2,22 +2,22 @@
 
 <p>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuildStatus">
-    <img src="https://img.shields.io/docker/cloud/build/tekgator/docker-mcmyadmin?style=for-the-badge" />
+    <img src="https://img.shields.io/docker/cloud/build/tekgator/docker-mcmyadmin" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin" alt="DockerPulls">
-    <img src="https://img.shields.io/docker/pulls/tekgator/docker-mcmyadmin?style=for-the-badge" />
+    <img src="https://img.shields.io/docker/pulls/tekgator/docker-mcmyadmin" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuilds">
-    <img src="https://img.shields.io/docker/cloud/automated/tekgator/docker-mcmyadmin?style=for-the-badge" />
+    <img src="https://img.shields.io/docker/cloud/automated/tekgator/docker-mcmyadmin" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuildStatus">
-    <img src="https://img.shields.io/docker/image-size/tekgator/docker-mcmyadmin/latest?style=for-the-badge" />
+    <img src="https://img.shields.io/docker/image-size/tekgator/docker-mcmyadmin/latest" />
   </a>
   <a href="https://github.com/tekgator/docker-mcmyadmin/blob/main/LICENSE" alt="License">
-    <img src="https://img.shields.io/github/license/tekgator/docker-mcmyadmin?style=for-the-badge" />
+    <img src="https://img.shields.io/github/license/tekgator/docker-mcmyadmin" />
   </a>
   <a href="https://github.com/tekgator/docker-mcmyadmin/releases" alt="Releases">
-    <img src="https://img.shields.io/github/v/release/tekgator/docker-mcmyadmin?style=for-the-badge" />
+    <img src="https://img.shields.io/github/v/release/tekgator/docker-mcmyadmin" />
   </a>
 </p>
 
