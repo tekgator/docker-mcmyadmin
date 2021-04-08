@@ -16,7 +16,9 @@ WORKDIR ${DATA_PATH}
 # Install required packages
 RUN \
   apt-get update && \
-  apt-get install -y --no-install-recommends dumb-init procps locales unzip curl git screen gosu libgdiplus
+  apt-get install -y --no-install-recommends dumb-init procps locales unzip curl git screen gosu libgdiplus && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /var/tmp/*
 
 # setup environment
 RUN \
@@ -31,12 +33,8 @@ RUN \
   unzip /tmp/etc.zip -d /usr/local && \
   mkdir -vp $APP_PATH/config && \
   unzip /tmp/MCMA2_glibc26_2.zip -d $APP_PATH/config && \
-  chmod -v a+rx $APP_PATH/config/MCMA2_Linux_x86_64
-
-# Cleanup
-RUN \
-  apt-get clean && \
-  rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+  chmod -v a+rx $APP_PATH/config/MCMA2_Linux_x86_64 && \
+  rm -rf /tmp/*
 
 # Copy local files to image
 COPY app/ /app/
