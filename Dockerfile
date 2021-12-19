@@ -1,4 +1,4 @@
-FROM openjdk:16.0.1-jdk-slim-buster
+FROM openjdk:17-jdk-slim-buster
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
