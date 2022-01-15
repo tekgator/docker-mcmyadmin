@@ -1,14 +1,11 @@
 # docker-mcmyadmin
 
 <p>
-  <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuildStatus">
-    <img src="https://img.shields.io/docker/cloud/build/tekgator/docker-mcmyadmin" />
+  <a href="https://github.com/tekgator/docker-mcmyadmin/actions/workflows/build-and-publish.yml" alt="BuildStatus">
+    <img src="https://img.shields.io/github/workflow/status/tekgator/docker-mcmyadmin/Publish%20Docker%20image" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin" alt="DockerPulls">
     <img src="https://img.shields.io/docker/pulls/tekgator/docker-mcmyadmin" />
-  </a>
-  <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuilds">
-    <img src="https://img.shields.io/docker/cloud/automated/tekgator/docker-mcmyadmin" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuildStatus">
     <img src="https://img.shields.io/docker/image-size/tekgator/docker-mcmyadmin/latest" />
