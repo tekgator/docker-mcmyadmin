@@ -20,6 +20,9 @@
 
 McMyAdmin Panel docker file to administrate and run all variants of a Java Minecraft Server.
 
+- Maintained by [Patrick Weiss](https://github.com/tekgator)
+- Problems and issues can be filed on the [Github repository](https://github.com/tekgator/docker-mcmyadmin/issues)
+
 **Note:** As the below is overseen often, the default user/password for the McMyAdmin Login is **admin** / **pass123**
 
 ## buy-me-a-coffee
