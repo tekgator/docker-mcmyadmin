@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim-buster
+FROM openjdk:18.0.1.1-jdk-slim-bullseye
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
@@ -38,7 +38,7 @@ RUN \
 
 # Copy local files to image
 COPY app/ /app/
-  
+
 # allow read and execution of the script
 RUN chmod -v a+rx $APP_PATH/*.sh
 
