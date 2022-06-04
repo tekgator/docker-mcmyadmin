@@ -38,8 +38,8 @@ Also this docker image tails the latest McMyAdmin log file to provide logging in
 
 ## Details
 
-* Utilizing Debian 10 Buster slim version 
-* OpenJDK-17 is used as it is required for some Minecraft plugins
+* Utilizing Debian 11 Bullseye slim version 
+* OpenJDK-18 is used as it is required for some Minecraft plugins
 * McMyAdmin Minecraft web based admin panel
 * When the container stops firstly the world is saved and the server is properly shut down.
 * The McMyAdmin Admin panel runs under minecraft user on port tcp/8080
