@@ -2,7 +2,7 @@
 
 <p>
   <a href="https://github.com/tekgator/docker-mcmyadmin/actions/workflows/build-and-publish.yml" alt="BuildStatus">
-    <img src="https://img.shields.io/github/workflow/status/tekgator/docker-mcmyadmin/Publish%20Docker%20image" />
+    <img src="https://img.shields.io/github/actions/workflow/status/tekgator/docker-mcmyadmin/build-and-publish.yml?branch=main" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin" alt="DockerPulls">
     <img src="https://img.shields.io/docker/pulls/tekgator/docker-mcmyadmin" />
@@ -26,9 +26,9 @@ McMyAdmin Panel docker file to administrate and run all variants of a Java Minec
 **Note:** As the below is overseen often, the default user/password for the McMyAdmin Login is **admin** / **pass123**
 
 ## buy-me-a-coffee
-Like some of my work? Buy me a coffee ☕ (or more likely a beer 🍺, or even more likly shoes 👠 or purse 👜 for the wify 😄)
+If I've helped you and you like some of my work, feel free to buy me a coffee ☕ (or more likely a beer 🍺)
 
-<a href="https://www.buymeacoffee.com/tekgator" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+<a href='https://ko-fi.com/C0C7LO3V1' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 ## Description
 
