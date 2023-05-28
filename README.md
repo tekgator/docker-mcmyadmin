@@ -1,20 +1,27 @@
 # docker-mcmyadmin
 
 <p>
-  <a href="https://github.com/tekgator/docker-mcmyadmin/actions/workflows/build-and-publish.yml" alt="BuildStatus">
-    <img src="https://img.shields.io/github/actions/workflow/status/tekgator/docker-mcmyadmin/build-and-publish.yml?branch=main" />
+  <a href="https://github.com/tekgator/docker-mcmyadmin/blob/main/LICENSE" alt="License">
+    <img src="https://img.shields.io/github/license/tekgator/docker-mcmyadmin" />
   </a>
+  <img src="https://img.shields.io/github/languages/top/tekgator/docker-mcmyadmin" />  
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin" alt="DockerPulls">
     <img src="https://img.shields.io/docker/pulls/tekgator/docker-mcmyadmin" />
   </a>
   <a href="https://hub.docker.com/r/tekgator/docker-mcmyadmin/tags?page=1&ordering=last_updated" alt="DockerBuildStatus">
     <img src="https://img.shields.io/docker/image-size/tekgator/docker-mcmyadmin/latest" />
   </a>
-  <a href="https://github.com/tekgator/docker-mcmyadmin/blob/main/LICENSE" alt="License">
-    <img src="https://img.shields.io/github/license/tekgator/docker-mcmyadmin" />
+  <a href="https://github.com/tekgator/docker-mcmyadmin/actions/workflows/build-and-publish.yml" alt="BuildStatus">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/tekgator/docker-mcmyadmin/build-and-publish.yml">
   </a>
   <a href="https://github.com/tekgator/docker-mcmyadmin/releases" alt="Releases">
     <img src="https://img.shields.io/github/v/release/tekgator/docker-mcmyadmin" />
+  </a>
+  <a href="https://github.com/tekgator/docker-mcmyadmin/releases" alt="Releases">
+    <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/tekgator/docker-mcmyadmin">
+  </a>
+  <a href="https://github.com/tekgator/docker-mcmyadmin/commit" alt="Commit">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/tekgator/docker-mcmyadmin">
   </a>
 </p>
 
